@@ -38,28 +38,28 @@ struct ManualBox2: View {
                 .onTapGesture {
                         sentenceGone1 = !sentenceGone1
                 }
-                .opacity(sentenceGone1 ? 0 : 0)
+                .opacity(sentenceGone1 ? 0 : 1)
                 .animation(.default, value: sentenceGone1)
 
             Text("In every steps, you are going to do every processes of cooking")
                 .bold()
                 .frame(width: 380)
                 .font(.system(size:18))
-                .opacity(sentenceGone1 ? 1 : 1)
+                .opacity(sentenceGone1 ? 1 : 0)
                 .animation(.default, value: sentenceGone1)
                 .offset(y:UIScreen.height * -0.1  )
             Text("After all processes, you are going to tap")
                 .bold()
                 .frame(width: 310)
                 .font(.system(size:18))
-                .opacity(sentenceGone1 ? 1 : 1)
+                .opacity(sentenceGone1 ? 1 : 0)
                 .animation(.default.delay(1.5), value: sentenceGone1)
                 .offset(x:UIScreen.width * -0.036,y:UIScreen.height * -0.05)
             Text("'Convert to Code' Button.")
                 .bold()
                 .frame(width: 360)
                 .font(.system(size:18))
-                .opacity(sentenceGone1 ? 1 : 1)
+                .opacity(sentenceGone1 ? 1 : 0)
                 .animation(.default.delay(2.5), value: sentenceGone1)
                 .offset()
             Button{
@@ -73,7 +73,7 @@ struct ManualBox2: View {
             .foregroundColor(.white)
             .background(Color.blue)
             .cornerRadius(20)
-            .opacity(sentenceGone1 ? 1 : 1)
+            .opacity(sentenceGone1 ? 1 : 0)
             .animation(.default.delay(3.5), value: sentenceGone1)
             .offset(y:UIScreen.height * 0.1)
             
