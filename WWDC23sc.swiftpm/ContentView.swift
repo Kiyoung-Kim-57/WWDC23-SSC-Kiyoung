@@ -3,17 +3,16 @@ import SwiftUI
 
 @available(iOS 16.0, *)
 struct ContentView: View {
-    
     @State private var selectedTypeId: VegetableType.ID?
-    
     private var model = VegetableModel()
-    
-    
     var body: some View {
+        
         NavigationSplitView{
+            
             List{
+                
                 NavigationLink{
-                    Text("Click to prepare for Cooking") //다른 뷰로 대체
+                    IntroductionView() //다른 뷰로 대체
                 } label: {
                     Text("Let's Cook")
                         .font(.system(.title2))
@@ -59,6 +58,7 @@ struct ContentView: View {
             }
         } detail: {
                 Text("Cook & Code")
+                .font(.system(size:100))
             }
         }
     }
