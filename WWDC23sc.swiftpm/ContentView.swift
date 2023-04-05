@@ -4,14 +4,33 @@ import SwiftUI
 
 
 @available(iOS 16.0, *)
-
 struct ContentView: View {
     
     
     var body: some View {
         
         NavigationSplitView {
-          Text("hey")
+            List {
+                NavigationLink("Cook") {
+                    Text("😵‍")
+                }
+                NavigationLink("Main Ingredient") {
+                    Text("😵‍💫")
+                }
+                NavigationLink("Toos") {
+                    Text("😵‍")
+                }
+                NavigationLink("Timer") {
+                    Text("😵‍")
+                }
+        
+                NavigationLink("Second link") {
+                    Text("😵‍")
+                }
+                
+                //#-learning-code-snippet(addMoreNavLinks)
+            }
+
         } detail: {
           // Detail view for each of the menu item
             VStack {
