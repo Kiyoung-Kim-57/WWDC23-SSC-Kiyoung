@@ -25,7 +25,7 @@ struct IntroductionView: View {
             .foregroundColor(.white)
             .background(Color.orange)
             .cornerRadius(20)
-            .offset(x:350, y:-550)
+            .offset(x:UIScreen.width * 0.32, y:UIScreen.height * -0.32)
 
         }
             }
@@ -39,7 +39,7 @@ struct IntroView: View {
         ZStack{
             Text("Welcome to Cook&Code")
                  .font(.system(size:50))
-                 .offset(y:-450)
+                 .offset(y:UIScreen.height * -0.25)
             ManualBox1()
                 .opacity(isAppear ? 1 : 0)
                 .animation(.default, value: isAppear)
@@ -71,7 +71,7 @@ struct IntroView: View {
             .cornerRadius(20)
             .opacity(isAppear ? 0 : 1)
             .animation(.default, value: isAppear)
-            .offset(y:380)
+            .offset(y:UIScreen.height * 0.25)
             Button{
                 isStart.toggle()
                 isAppear.toggle()
@@ -86,7 +86,7 @@ struct IntroView: View {
             .cornerRadius(20)
             .opacity(isAppear ? 1 : 0)
             .animation(.default, value: isAppear)
-            .offset(y:380)
+            .offset(y:UIScreen.height * 0.25)
         ManualBox2()
                 .opacity(isStart ? 1 : 0)
                 .animation(.default, value: isStart)
@@ -94,10 +94,17 @@ struct IntroView: View {
     }
 }
 
+struct IntroductionView2_Previews: PreviewProvider {
+    static var previews: some View {
+        IntroductionView()
+            
+    }
+}
 
 
 struct IntroductionView_Previews: PreviewProvider {
     static var previews: some View {
         IntroductionView()
+            .previewInterfaceOrientation(.landscapeLeft)
     }
 }
