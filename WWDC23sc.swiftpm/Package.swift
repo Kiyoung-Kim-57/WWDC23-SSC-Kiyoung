@@ -10,7 +10,7 @@ import AppleProductTypes
 let package = Package(
     name: "WWDC23sc",
     platforms: [
-        .iOS("15.2")
+        .iOS("16.0")
     ],
     products: [
         .iOSApplication(
@@ -28,9 +28,9 @@ let package = Package(
             ],
             supportedInterfaceOrientations: [
                 .portrait,
-                .landscapeRight,
-                .landscapeLeft,
-                .portraitUpsideDown(.when(deviceFamilies: [.pad]))
+              //  .landscapeRight,
+              //  .landscapeLeft,
+              //  .portraitUpsideDown(.when(deviceFamilies: [.pad]))
             ]
         )
     ],

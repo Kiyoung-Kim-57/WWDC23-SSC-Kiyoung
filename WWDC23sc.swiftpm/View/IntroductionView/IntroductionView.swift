@@ -10,22 +10,23 @@ struct IntroductionView: View {
     @State var theId = 0
     var body: some View{
         ZStack{
-            Color(.systemYellow)
+            Color(hex: 0xF9F5EA)
                 .ignoresSafeArea()
-                .opacity(0.2)
+                
             IntroView().id(theId)
             Button{
                 self.theId += 1
             }label: {
                 Text("Reset")
                     .bold()
-                    .font(.system(size:30))
+                    .font(.system(size:20))
             }
             .padding()
             .foregroundColor(.white)
             .background(Color.orange)
             .cornerRadius(20)
-            .offset(x:UIScreen.width * 0.32, y:UIScreen.height * -0.32)
+            .offset(x:220, y:-500)
+            //   .offset(x:UIScreen.width * 0.32, y:UIScreen.height * -0.32)
 
         }
             }
@@ -38,12 +39,20 @@ struct IntroView: View {
     var body: some View {
         ZStack{
             Text("Welcome to Cook&Code")
-                 .font(.system(size:50))
-                 .offset(y:UIScreen.height * -0.25)
+                .font(.system(size:50))
+                .offset(y:UIScreen.height * -0.28)
             ManualBox1()
                 .opacity(isAppear ? 1 : 0)
                 .animation(.default, value: isAppear)
-            Button{
+            Button
+            {
+                isAppear.toggle()
+            }label: {
+                Text("Touch this Button!")
+                    .bold()
+                    .font(.system(size:30))
+            }
+            /*{
                 if buttonCount == 0 {
                     isAppear.toggle()
                     buttonCount += 1
@@ -51,7 +60,7 @@ struct IntroView: View {
                 else{
                     buttonCount += 1
                 }
-
+                
             } label: {
                 if buttonCount == 0 {
                     Text("Touch this Button!")
@@ -63,8 +72,8 @@ struct IntroView: View {
                         .bold()
                         .font(.system(size:30))
                 }
-
-            }
+                
+            } */
             .padding()
             .foregroundColor(.white)
             .background(Color.gray)
@@ -72,9 +81,10 @@ struct IntroView: View {
             .opacity(isAppear ? 0 : 1)
             .animation(.default, value: isAppear)
             .offset(y:UIScreen.height * 0.25)
+            
             Button{
                 isStart.toggle()
-                isAppear.toggle()
+               
             } label: {
                 Text("Let's Start!")
                     .bold()
@@ -87,24 +97,34 @@ struct IntroView: View {
             .opacity(isAppear ? 1 : 0)
             .animation(.default, value: isAppear)
             .offset(y:UIScreen.height * 0.25)
-        ManualBox2()
+        
+            Rectangle()
+                .foregroundColor(Color(hex: 0xF9F5EA))
+                .frame(width: 300 , height: 150)
+                .opacity(isStart ? 1 : 0)
+                .animation(.default, value: isStart)
+                .offset(y:UIScreen.height * 0.25)
+                
+                
+            ManualBox2()
                 .opacity(isStart ? 1 : 0)
                 .animation(.default, value: isStart)
         }
     }
-}
-
-struct IntroductionView2_Previews: PreviewProvider {
-    static var previews: some View {
-        IntroductionView()
+    
+    
+    struct IntroductionView2_Previews: PreviewProvider {
+        static var previews: some View {
+            IntroductionView()
             
+        }
     }
-}
-
-
-struct IntroductionView_Previews: PreviewProvider {
-    static var previews: some View {
-        IntroductionView()
-            .previewInterfaceOrientation(.landscapeLeft)
+    
+    
+    struct IntroductionView_Previews: PreviewProvider {
+        static var previews: some View {
+            IntroductionView()
+                .previewInterfaceOrientation(.landscapeLeft)
+        }
     }
 }

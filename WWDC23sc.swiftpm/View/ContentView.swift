@@ -1,7 +1,10 @@
 import SwiftUI
 
 
-@available(iOS 16.0, *)
+
+
+//UIscreen.mainScreen.bounds.width 써보자
+//@available(iOS 16.0, *)
 struct ContentView: View {
     @State private var selectedTypeId: VegetableType.ID?
     private var model = VegetableModel()
@@ -14,7 +17,7 @@ struct ContentView: View {
                 NavigationLink{
                     IntroductionView() //다른 뷰로 대체
                 } label: {
-                    Text("Let's Cook")
+                    Text("Before We Start")
                         .font(.system(.title2))
                         .bold()
                         .padding()
@@ -22,7 +25,7 @@ struct ContentView: View {
                 NavigationLink{
                     Text("What are you going to eat?")
                 } label: {
-                    Text("Choose Your Ingredients")
+                    Text("Let's Go To Grocery Store")
                         .font(.system(.title2))
                         .bold()
                         .padding()
@@ -106,7 +109,7 @@ struct ContentView: View {
     
 
 
-@available(iOS 16.0, *)
+//@available(iOS 16.0, *)
 struct ContentView_Preview: PreviewProvider{
     static var previews: some View{
         ContentView()
