@@ -42,16 +42,16 @@ struct IntroView: View {
                 .font(.system(size:50))
                 .offset(y:UIScreen.height * -0.28)
             ManualBox1()
-                .opacity(isAppear ? 1 : 0)
-                .animation(.default, value: isAppear)
-            Button
+               // .opacity(isAppear ? 1 : 0)
+              //  .animation(.default, value: isAppear)
+         /*   Button
             {
                 isAppear.toggle()
             }label: {
                 Text("Touch this Button!")
                     .bold()
                     .font(.system(size:30))
-            }
+            } */
             /*{
                 if buttonCount == 0 {
                     isAppear.toggle()
@@ -74,13 +74,13 @@ struct IntroView: View {
                 }
                 
             } */
-            .padding()
+         /*   .padding()
             .foregroundColor(.white)
             .background(Color.gray)
             .cornerRadius(20)
             .opacity(isAppear ? 0 : 1)
             .animation(.default, value: isAppear)
-            .offset(y:UIScreen.height * 0.25)
+            .offset(y:UIScreen.height * 0.25) */
             
             Button{
                 isStart.toggle()
@@ -94,7 +94,7 @@ struct IntroView: View {
             .foregroundColor(.white)
             .background(Color.gray)
             .cornerRadius(20)
-            .opacity(isAppear ? 1 : 0)
+         //   .opacity(isAppear ? 1 : 0)
             .animation(.default, value: isAppear)
             .offset(y:UIScreen.height * 0.25)
         
