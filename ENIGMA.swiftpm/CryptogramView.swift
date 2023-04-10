@@ -11,7 +11,7 @@ import SwiftUI
 struct CryptogramView: View {
     
     @State var password: String = ""
-    @State var testing:String = ""
+    @State var crypto:String = ""
     @State var num = 0
     @State var changedIntoNum:[Int] = []
     @State var changedIntoC:[String] = []
@@ -21,7 +21,7 @@ struct CryptogramView: View {
             TextField("Write anything, BUT IN UPPERCASE", text: $password)
                 .bold()
                 .font(.system(size: 40))
-                .border(.black)
+                .background(Color(.systemYellow))
                 .frame(width: 650)
                 .offset(x: 20, y:-300)
                 
@@ -40,13 +40,13 @@ struct CryptogramView: View {
                     changedIntoC.append(emojiArray[value])
                 }
                 
-                testing = changedIntoC.joined(separator: "")
+                crypto = changedIntoC.joined(separator: "")
                 
             } label: {
                 Text("Change")
             }
             
-            Text("Changed Code is  \(testing)")
+            Text("Changed Code is  \(crypto)") //해독뷰 입력칸 placeholder로 넣기
                 .font(.system(size: 30))
                 .offset(y:300)
             
