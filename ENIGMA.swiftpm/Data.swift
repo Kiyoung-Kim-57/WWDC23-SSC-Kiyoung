@@ -14,8 +14,9 @@ let alphabetArray = Array(alphabet).map(String.init)
 let emoji = "💀😀😃😄😁😆🥹😅😂😉🙃🙂😇😊☺️🥲🤣😘🥰😍😌😚😙😗😋🤯🥶😀😃😄😁😆🥹😅😂😉🙃🙂😇😊☺️🥲🤣😘🥰😍😌😚😙😗😋🤯🥶"
 let emojiArray = Array(emoji).map(String.init)
 
-/*func arrayMaking(_ sampleStrings:String) {
-    let sampleArray:[String] = []
-    sampleArray = Array(sameleStrings).map(String.init)
+func arrayMaking(_ sampleStrings:String) -> [String] {
+    var sampleArray:[String] = []
+    sampleArray = Array(sampleStrings).map(String.init)
     
-}*/
+    return sampleArray
+}
