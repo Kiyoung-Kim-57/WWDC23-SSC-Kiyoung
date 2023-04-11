@@ -11,8 +11,8 @@ import SwiftUI
 struct CryptogramView: View {
     
     @State var password: String = ""
-    @State var crypto:String = ""
-    @State var num = 0
+    @State var cryptoWord:String = ""
+    @State var numKey = 0 //Int.random(in: 1...26)
     @State var changedIntoNum:[Int] = []
     @State var changedIntoC:[String] = []
     
@@ -26,6 +26,7 @@ struct CryptogramView: View {
                 .offset(x: 20, y:-300)
                 
             Button{
+            //    numKey = Int.random(in: 0...26) //Change code randomly
                 changedIntoC = []
                 changedIntoNum = []
                 let passwordArray = Array(password).map(String.init)
@@ -37,16 +38,16 @@ struct CryptogramView: View {
                 
                 for value in changedIntoNum {
                   
-                    changedIntoC.append(emojiArray[value])
+                    changedIntoC.append(passwordArray1[value/*+numKey*/])
                 }
                 
-                crypto = changedIntoC.joined(separator: "")
+                cryptoWord = changedIntoC.joined(separator: "")
                 
             } label: {
                 Text("Change")
             }
             
-            Text("Changed Code is  \(crypto)") //해독뷰 입력칸 placeholder로 넣기
+            Text("Changed Code is  \(cryptoWord)"/* and Key is \(numKey)"*/) //해독뷰 입력칸 placeholder로 넣기
                 .font(.system(size: 30))
                 .offset(y:300)
             

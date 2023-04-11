@@ -7,9 +7,15 @@
 
 import Foundation
 
-let passPlate = "💀ESOVPZJAYQUIRHXLNFTGKDCMWB"
-let passwordChange1 = Array(passPlate).map(String.init)
-let alphabet =  "💀ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+let passPlate = "💀ESOVPZJAYQUIRHXLNFTGKDCMWBESOVPZJAYQUIRHXLNFTGKDCMWB"
+let passwordArray1 = Array(passPlate).map(String.init)
+let alphabet =  "💀ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
 let alphabetArray = Array(alphabet).map(String.init)
-let emoji = "💀😀😃😄😁😆🥹😅😂😉🙃🙂😇😊☺️🥲🤣😘🥰😍😌😚😙😗😋🤯🥶"
+let emoji = "💀😀😃😄😁😆🥹😅😂😉🙃🙂😇😊☺️🥲🤣😘🥰😍😌😚😙😗😋🤯🥶😀😃😄😁😆🥹😅😂😉🙃🙂😇😊☺️🥲🤣😘🥰😍😌😚😙😗😋🤯🥶"
 let emojiArray = Array(emoji).map(String.init)
+
+/*func arrayMaking(_ sampleStrings:String) {
+    let sampleArray:[String] = []
+    sampleArray = Array(sameleStrings).map(String.init)
+    
+}*/
