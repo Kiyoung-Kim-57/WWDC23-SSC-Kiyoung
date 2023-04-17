@@ -7,16 +7,44 @@
 
 import Foundation
 
-let passPlate = "💀ESOVPZJAYQUIRHXLNFTGKDCMWBESOVPZJAYQUIRHXLNFTGKDCMWB"
-let passwordArray1 = Array(passPlate).map(String.init)
-let alphabet =  "💀ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
-let alphabetArray = Array(alphabet).map(String.init)
-let emoji = "💀😀😃😄😁😆🥹😅😂😉🙃🙂😇😊☺️🥲🤣😘🥰😍😌😚😙😗😋🤯🥶😀😃😄😁😆🥹😅😂😉🙃🙂😇😊☺️🥲🤣😘🥰😍😌😚😙😗😋🤯🥶"
-let emojiArray = Array(emoji).map(String.init)
-
+//Making key plate
 func arrayMaking(_ sampleStrings:String) -> [String] {
-    var sampleArray:[String] = []
-    sampleArray = Array(sampleStrings).map(String.init)
-    
-    return sampleArray
+    Array(sampleStrings).map(String.init)
 }
+let passPlate = "💀ESOVPZJAYQUIRHXLNFTGKDCMWBesovpzjayquirhxlnftgkdcmwbESOVPZJAYQUIRHXLNFTGKDCMWBesovpzjayquirhxlnftgkdcmwb"
+let passwordArray1 = arrayMaking(passPlate)
+
+let alphabet =  "💀ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+let alphabetArray = arrayMaking(alphabet)
+
+let emoji = "💀😀😃😄😁😆🥹😅😂😉🙃🙂😇😊☺️🥲🤣😘🥰😍😌😚😙😗😋🤯🥶😀😃😄😁😆🥹😅😂😉🙃🙂😇😊☺️🥲🤣😘🥰😍😌😚😙😗😋🤯🥶😀😃😄😁😆🥹😅😂😉🙃🙂😇😊☺️🥲🤣😘🥰😍😌😚😙😗😋🤯🥶😀😃😄😁😆🥹😅😂😉🙃🙂😇😊☺️🥲🤣😘🥰😍😌😚😙😗😋🤯🥶"
+// let emojiArray = Array(emoji).map(String.init)
+let emojiArray = arrayMaking(emoji)
+
+var basicAlphabet =  "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+
+/*
+struct PlateKey {
+    var plateName:String = ""
+    var plateMatch:[String] = []
+    var id = UUID()
+}
+
+var plateKeyList = [
+    PlateKey(plateName: "Sample", plateMatch: passwordArray1),
+    PlateKey(plateName: "Emoji", plateMatch: emojiArray),
+    PlateKey(plateName: "Default", plateMatch: alphabetArray)
+]
+    */
+    
+
+
+//dictionary of plate and array of key value
+let plateDic: [String:[String]] =
+[
+    "defaultAlphabet":alphabetArray,
+    "sampleRandom1":passwordArray1,
+    "sampleEmoji":emojiArray
+]
+var plateList: [String] = plateDic.map{$0.0}
+var displayedCryto:String = ""

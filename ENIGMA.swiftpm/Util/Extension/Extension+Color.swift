@@ -15,7 +15,7 @@ extension Color {
     }
     
     
-    static let bgColor:Color = Color("BgColor")
+    static let bgColor:Color = Color(hex: 0xd4e4ff)
     
     
 }

@@ -3,21 +3,34 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
+        
         NavigationSplitView{
             List{
                 NavigationLink{
-                    CryptogramView()
+                    CipherView()
                 }label: {
-                    Text("Create")
+                    Text("Cipher")
                 }
                 NavigationLink{
-                    
+                    DecipherView()
                 }label: {
                     Text("Decipher")
                 }
+                NavigationLink{
+                    DictionaryView()
+                }label: {
+                    Text("Plates Dictionary")
+                }
             }
         } detail: {
-            Text("Hello")
+            ZStack{
+                Color.bgColor
+                    .ignoresSafeArea()
+                Image("Enigma")
+                    .shadow(radius: 30)
+                    
+            }
+            
         }
     }
 }
