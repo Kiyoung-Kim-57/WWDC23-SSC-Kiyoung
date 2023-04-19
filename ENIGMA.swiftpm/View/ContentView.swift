@@ -2,6 +2,7 @@ import SwiftUI
 
 
 struct ContentView: View {
+    @State var showContentModal = false
     var body: some View {
         
         NavigationSplitView{
@@ -17,18 +18,34 @@ struct ContentView: View {
                     Text("Decipher")
                 }
                 NavigationLink{
+                    CreatePlateView()
+                }label: {
+                    Text("Create Random Rotor")
+                }
+                NavigationLink{
                     DictionaryView()
                 }label: {
-                    Text("Plates Dictionary")
+                    Text("Rotors List")
                 }
             }
         } detail: {
             ZStack{
                 Color.bgColor
                     .ignoresSafeArea()
-                Image("Enigma")
-                    .shadow(radius: 30)
-                    
+                VStack{
+                    Button{
+                        showContentModal.toggle()
+                    } label: {
+                        Image(systemName: "doc")
+                            .foregroundColor(.black)
+                            .font(.system(size: 60))
+                    }
+                    .sheet(isPresented: $showContentModal){
+                        ContentModalView()
+                    }
+                    Image("Enigma")
+                        .shadow(radius: 30)
+                }
             }
             
         }

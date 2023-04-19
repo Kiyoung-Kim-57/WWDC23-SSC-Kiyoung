@@ -40,7 +40,7 @@ var plateKeyList = [
 
 
 //dictionary of plate and array of key value
-let plateDic: [String:[String]] =
+var plateDic: [String:[String]] =
 [
     "defaultAlphabet":alphabetArray,
     "sampleRandom1":passwordArray1,
