@@ -1,22 +1,21 @@
 //
-//  ContentModalView.swift
+//  CreateModalView.swift
 //  ENIGMA
 //
-//  Created by 김기영 on 2023/04/18.
+//  Created by 김기영 on 2023/04/19.
 //
 
 import SwiftUI
 
-struct ContentModalView: View {
+struct CreateModalView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var body: some View {
         VStack{
-            Image("Intro")
-            Spacer().frame(height: UIScreen.height * 0.2)
+            Image("CreateTutorial")
             Button{
                 self.presentationMode.wrappedValue.dismiss()
             } label: {
-                Text("Go back to page")
+                Text("Go back to cipher")
                     .foregroundColor(.black)
                     .background(Color.secondary)
                     .font(.system(size: 60))
@@ -26,8 +25,8 @@ struct ContentModalView: View {
     }
 }
 
-struct ContentModalView_Previews: PreviewProvider {
+struct CreateModalView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentModalView()
+        CreateModalView()
     }
 }

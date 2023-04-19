@@ -2,11 +2,16 @@ import SwiftUI
 
 
 struct ContentView: View {
-    @State var showContentModal = false
+    
     var body: some View {
         
         NavigationSplitView{
             List{
+                NavigationLink{
+                    StartView()
+                }label: {
+                    Text("Intro")
+                }
                 NavigationLink{
                     CipherView()
                 }label: {
@@ -29,28 +34,38 @@ struct ContentView: View {
                 }
             }
         } detail: {
-            ZStack{
+            StartView()
+         /*   ZStack{
                 Color.bgColor
                     .ignoresSafeArea()
                 VStack{
-                    Button{
-                        showContentModal.toggle()
-                    } label: {
-                        Image(systemName: "doc")
-                            .foregroundColor(.black)
-                            .font(.system(size: 60))
+                    HStack{
+                        Spacer().frame(width: UIScreen.width * 0.7)
+                        Button{
+                            showContentModal.toggle()
+                        } label: {
+                            Image(systemName: "doc")
+                                .foregroundColor(.black)
+                                .font(.system(size: 60))
+                        }
+                        .sheet(isPresented: $showContentModal){
+                            ContentModalView()
+                        }
                     }
-                    .sheet(isPresented: $showContentModal){
-                        ContentModalView()
-                    }
+                    Spacer().frame(height: UIScreen.height * 0.07)
+                    Text("Simple Enigma")
+                        .font(.system(size: 70))
+                        .bold()
+                    Spacer().frame(height: UIScreen.height * 0.1)
                     Image("Enigma")
                         .shadow(radius: 30)
-                }
+                    Spacer().frame(height: UIScreen.height * 0.2)
+                }*/
             }
             
         }
     }
-}
+
 
 
 struct ContentView_Preview: PreviewProvider{

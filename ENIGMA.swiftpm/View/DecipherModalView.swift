@@ -11,11 +11,15 @@ struct DecipherModalView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var body: some View {
         VStack{
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+            Image("DecipherTutorial")
             Button{
                 self.presentationMode.wrappedValue.dismiss()
             } label: {
-                Text("Go back to cipher")
+                Text("Go back to page")
+                    .foregroundColor(.black)
+                    .background(Color.secondary)
+                    .font(.system(size: 60))
+                    .cornerRadius(10)
             }
         }
         

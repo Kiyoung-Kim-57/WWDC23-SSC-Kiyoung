@@ -64,17 +64,8 @@ struct DecipherView: View {
             //픽커로 키와 플레이트 선택
             VStack{
                 HStack{
-                    Button{
-                        showModalView.toggle()
-                    } label: {
-                        Image(systemName: "doc")
-                            .font(.system(size: 60))
-                            .foregroundColor(.black)
-                    }
-                    .sheet(isPresented: $showModalView){
-                        CipherModalView()
-                    }
-                    Spacer().frame(width: UIScreen.width * 0.3)
+                    
+                    
                     Button{
                         plateList = plateDic.map{$0.0}
                     } label: {
@@ -87,6 +78,22 @@ struct DecipherView: View {
                     }
                     .background(Color.gray)
                     .cornerRadius(15)
+                    Spacer().frame(width: UIScreen.width * 0.32)
+                    Button{
+                        showModalView.toggle()
+                    } label: {
+                        VStack{
+                            Image("Lightbulb2")
+                                .font(.system(size: 90))
+                                .foregroundColor(.black)
+                            Text("Touch here!")
+                                .foregroundColor(.black)
+                                .bold()
+                        }
+                    }
+                    .sheet(isPresented: $showModalView){
+                        DecipherModalView()
+                    }
                 }
                 Spacer().frame(height: UIScreen.height * 0.05)
                     

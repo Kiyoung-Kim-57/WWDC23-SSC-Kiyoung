@@ -56,17 +56,24 @@ struct CipherView: View {
             //픽커로 키와 플레이트 선택
             VStack{
                 VStack{
-                    Button{
-                        showModalView.toggle()
-                    } label: {
-                        Image(systemName: "doc")
-                            .font(.system(size: 60))
-                            .foregroundColor(.black)
+                    HStack{
+                        Spacer().frame(width: UIScreen.width * 0.75)
+                        Button{
+                            showModalView.toggle()
+                        } label: {
+                            VStack{
+                                Image("Lightbulb2")
+                                
+                                    //.font(.system(size: 90))
+                                  //  .foregroundColor(.black)
+                                Text("Touch here!")
+                                    .foregroundColor(.black)
+                            }
+                        }
+                        .sheet(isPresented: $showModalView){
+                            CipherModalView()
+                        }
                     }
-                    .sheet(isPresented: $showModalView){
-                        CipherModalView()
-                    }
-                    
                     
                     Button{
                         plateList = plateDic.map{$0.0}
@@ -82,7 +89,7 @@ struct CipherView: View {
                     .cornerRadius(15)
                     
                     
-                    Picker("choose roter", selection: $selectedPlate){
+                    Picker("choose rotor", selection: $selectedPlate){
                         ForEach(plateList, id: \.self) {
                             Text($0)
                         }
@@ -119,7 +126,7 @@ struct CipherView: View {
                 Text("Changed Code is  \(cryptoWord) and Key is \(numKey)") //해독뷰 입력칸 placeholder로 넣기
                     .font(.system(size: 30))
                     .foregroundColor(.black)
-                    
+                Spacer().frame(height: UIScreen.height * 0.1)
                 
             }
             
