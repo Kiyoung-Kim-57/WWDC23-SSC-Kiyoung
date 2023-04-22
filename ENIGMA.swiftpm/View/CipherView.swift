@@ -18,6 +18,7 @@ struct CipherView: View {
     @State var keyPlate:[String] = []
     @State var selectedPlate:String = ""
     @State var showModalView = false
+    @State var showAlert = false
     
    // var plateList = ["defaultAlphabet","sampleRandom1","sampleEmoji"]
     
@@ -77,6 +78,7 @@ struct CipherView: View {
                     
                     Button{
                         plateList = plateDic.map{$0.0}
+                        showAlert.toggle()
                     } label: {
                         Text("Refresh the list")
                             
@@ -85,8 +87,10 @@ struct CipherView: View {
                             .font(.system(size: 20))
                             
                     }
-                    .background(Color.gray)
+                    .background(Color.boxColor)
                     .cornerRadius(15)
+                    .alert("If list is not updated go to another page and come back", isPresented: $showAlert){
+                        Button("Ok", role: .cancel){}}
                     
                     
                     Picker("choose rotor", selection: $selectedPlate){
@@ -95,7 +99,7 @@ struct CipherView: View {
                         }
                     }
                     .pickerStyle(.wheel)
-                    .background(.gray)
+                    .background(Color.boxColor)
                     .cornerRadius(15)
                     .padding()
                 }
@@ -106,7 +110,8 @@ struct CipherView: View {
                         .bold()
                         .font(.system(size: 40))
                         .background(Color(.white))
-                        .frame(width: UIScreen.width * 0.5)
+                        .multilineTextAlignment(TextAlignment.center)
+                        .frame(width: UIScreen.width * 0.8)
                     Spacer().frame(height: UIScreen.height * 0.05)
                     //plateDic 활용
                     Button{
@@ -116,14 +121,14 @@ struct CipherView: View {
                             .font(.system(size: 30))
                             .frame(width: 150, height: 50)
                             .foregroundColor(.black)
-                            .background(Color.gray)
+                            .background(Color.boxColor)
                             
                     }
                     .cornerRadius(15)
                     
                     Spacer().frame(height: UIScreen.height * 0.05)
                 }
-                Text("Changed Code is  \(cryptoWord) and Key is \(numKey)") //해독뷰 입력칸 placeholder로 넣기
+                Text("Changed Code is \(cryptoWord) and Key is \(numKey)") //해독뷰 입력칸 placeholder로 넣기
                     .font(.system(size: 30))
                     .foregroundColor(.black)
                 Spacer().frame(height: UIScreen.height * 0.1)

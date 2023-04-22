@@ -18,7 +18,7 @@ struct DecipherView: View {
     @State var selectedPlate:String = ""
     @State var selectedKey:Int = 0
     @State var showModalView = false
-    
+    @State var showAlert = false
   //  var plateList = ["defaultAlphabet","sampleRandom1","sampleEmoji"]
     
      func decipher(){
@@ -63,11 +63,28 @@ struct DecipherView: View {
             
             //픽커로 키와 플레이트 선택
             VStack{
-                HStack{
-                    
-                    
+                VStack{
+                    HStack{
+                        Spacer().frame(width: UIScreen.width * 0.7)
+                        Button{
+                            showModalView.toggle()
+                        } label: {
+                            VStack{
+                                Image("Lightbulb2")
+                                    .font(.system(size: 90))
+                                    .foregroundColor(.black)
+                                Text("Touch here!")
+                                    .foregroundColor(.black)
+                                    .bold()
+                            }
+                        }
+                        .sheet(isPresented: $showModalView){
+                            DecipherModalView()}
+                    }
+                    Spacer().frame(height: UIScreen.height * 0.08)
                     Button{
                         plateList = plateDic.map{$0.0}
+                        showAlert.toggle()
                     } label: {
                         Text("Refresh the list")
                         
@@ -76,26 +93,15 @@ struct DecipherView: View {
                             .font(.system(size: 20))
                         
                     }
-                    .background(Color.gray)
+                    .background(Color.boxColor)
                     .cornerRadius(15)
-                    Spacer().frame(width: UIScreen.width * 0.32)
-                    Button{
-                        showModalView.toggle()
-                    } label: {
-                        VStack{
-                            Image("Lightbulb2")
-                                .font(.system(size: 90))
-                                .foregroundColor(.black)
-                            Text("Touch here!")
-                                .foregroundColor(.black)
-                                .bold()
-                        }
-                    }
-                    .sheet(isPresented: $showModalView){
-                        DecipherModalView()
-                    }
+                    .alert("If list is not updated go to another page and come back", isPresented: $showAlert){
+                        Button("Ok", role: .cancel){}}
+                  //  Spacer().frame(width: UIScreen.width * 0.32)
+                    
+                    
                 }
-                Spacer().frame(height: UIScreen.height * 0.05)
+                Spacer().frame(height: UIScreen.height * 0.02)
                     
                 HStack{
                     VStack{
@@ -108,12 +114,14 @@ struct DecipherView: View {
                         }
                         .pickerStyle(.wheel)
                         .frame(width: 300)
-                        .background(.secondary)
+                        .background(Color.boxColor)
                         .cornerRadius(15)
-                        .padding()
+                        
                     }
+                    Spacer().frame(width: 30)
                     VStack{
                         Text("Number Key")
+                            .bold()
                         Picker("choose plate", selection: $selectedKey){
                             ForEach(0 ... 52 , id: \.self) {
                                 Text("\($0)")
@@ -121,20 +129,21 @@ struct DecipherView: View {
                         }
                         .pickerStyle(.wheel)
                         .frame(width: 300)
-                        .background(.secondary)
+                        .background(Color.boxColor)
                         .cornerRadius(15)
-                        .padding()
+                        
                     }
                 }
                 Spacer().frame(height: UIScreen.height * 0.05)
                 Text(selectedPlate == "" ? "Present rotor is defaultAlphabet":"Present rotor is \(selectedPlate)")
-                    .bold()
+                    
                 if displayedCryto == "" {
                     TextField("Write ciphered sentences", text: $password)
                         .bold()
                         .font(.system(size: 40))
                         .background(Color(.white))
                         .frame(width: 650)
+                        .multilineTextAlignment(TextAlignment.center)
                         
                 }
                 else
@@ -146,7 +155,7 @@ struct DecipherView: View {
                         .frame(width: 650)
                         
                 }
-                Spacer().frame(height: UIScreen.height * 0.05)
+                Spacer().frame(height: UIScreen.height * 0.1)
                 //plateDic 활용
                 Button{
                     decipher()
@@ -154,16 +163,16 @@ struct DecipherView: View {
                     Text("Decipher")
                         .foregroundColor(.black)
                         .frame(width: 150, height: 50)
-                        .font(.system(size: 20))
+                        .font(.system(size: 30))
                 }
-                .background(Color.gray)
+                .background(Color.boxColor)
                 .cornerRadius(15)
                 
                 
-                Spacer().frame(height: UIScreen.height * 0.05)
+                
                 Text("Changed Code is  \(cryptoWord)") //해독뷰 입력칸 placeholder로 넣기
                     .font(.system(size: 30))
-                    
+                Spacer().frame(height: UIScreen.height * 0.1)
                 
             }
         }

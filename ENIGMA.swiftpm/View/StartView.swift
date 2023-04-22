@@ -14,7 +14,7 @@ struct StartView: View {
             Color.bgColor
                 .ignoresSafeArea()
             VStack{
-                Spacer().frame(height: UIScreen.height * 0.02)
+                Spacer().frame(height: UIScreen.height * 0.08)
                 HStack{
                     Spacer().frame(width: UIScreen.width * 0.7)
                     Button{
@@ -32,10 +32,11 @@ struct StartView: View {
                         ContentModalView()
                     }
                 }
-                Spacer().frame(height: UIScreen.height * 0.07)
-                Text("Simple Enigma")
+                Spacer().frame(height: UIScreen.height * 0.01)
+                Image("Title")
+               /* Text("Simple Enigma")
                     .font(.system(size: 70))
-                    .bold()
+                    .bold() */
                 Spacer().frame(height: UIScreen.height * 0.1)
                 Image("Enigma")
                     .shadow(radius: 30)

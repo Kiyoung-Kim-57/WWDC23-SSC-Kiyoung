@@ -5,11 +5,11 @@
       "scale" : "1x"
     },
     {
+      "filename" : "MakeTitle.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Lightbulb.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

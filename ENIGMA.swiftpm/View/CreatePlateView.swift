@@ -26,33 +26,37 @@ struct CreatePlateView: View {
                 Button{
                     showModalView.toggle()
                 } label: {
-                    VStack{
-                        Image("Lightbulb2")
-                            .font(.system(size: 90))
-                            .foregroundColor(.black)
-                        Text("Touch here!")
-                            .foregroundColor(.black)
+                    HStack{
+                        Spacer().frame(width: UIScreen.width * 0.55)
+                        VStack{
+                            Image("Lightbulb2")
+                                .font(.system(size: 90))
+                                .foregroundColor(.black)
+                            Text("Touch here!")
+                                .foregroundColor(.black)
+                        }
                     }
                 }
                 .sheet(isPresented: $showModalView){
                     CreateModalView()}
                 
-                Text("Make Random Key Rotors")
-                    .font(.system(size:50))
-                    Spacer().frame(height: UIScreen.height * 0.2)
+               // Text("Make Random Key Rotors")
+                 //   .font(.system(size:50))
+                Image("MakeTitle")
+                  Image("Keyboard")
                 TextField("Rotor Name", text: $plateName)
                         .bold()
                         .font(.system(size: 40))
                         .background(Color(.white))
                         .frame(width: UIScreen.width * 0.5)
-                    
+                        .multilineTextAlignment(TextAlignment.center)
                     Spacer().frame(height: UIScreen.height * 0.04)
                     
                     Text("<Key Rotor's array>")
                         .bold()
                         .font(.system(size: 25))
                     
-                    Spacer().frame(height: UIScreen.height * 0.04)
+                    Spacer().frame(height: UIScreen.height * 0.01)
                     
                     Text("\(displayedString)")
                         .font(.system(size:25))
@@ -68,7 +72,7 @@ struct CreatePlateView: View {
                             Text("Shuffle")
                                 .frame(width: UIScreen.width*0.1, height: UIScreen.height*0.06)
                                 .foregroundColor(.white)
-                                .background(Color.secondary)
+                                .background(Color.boxColor)
                                 .cornerRadius(5)
                         } //button shuffle end
                         
@@ -78,7 +82,7 @@ struct CreatePlateView: View {
                             Text("Reset")
                                 .frame(width: UIScreen.width*0.1, height: UIScreen.height*0.06)
                                 .foregroundColor(.white)
-                                .background(Color.secondary)
+                                .background(Color.boxColor)
                                 .cornerRadius(5)
                         }
                         Button{
@@ -98,7 +102,7 @@ struct CreatePlateView: View {
                             Text("Add")
                                 .frame(width: UIScreen.width*0.1, height: UIScreen.height*0.06)
                                 .foregroundColor(.white)
-                                .background(Color.secondary)
+                                .background(Color.boxColor)
                                 .cornerRadius(5)
                         }
                         .alert("empty rotor name and duplicated rotor names are not allowed", isPresented: $showingAlert){
