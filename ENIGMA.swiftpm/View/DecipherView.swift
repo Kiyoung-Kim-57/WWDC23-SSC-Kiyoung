@@ -19,6 +19,8 @@ struct DecipherView: View {
     @State var selectedKey:Int = 0
     @State var showModalView = false
     @State var showAlert = false
+    @State var checkNum:[String] = []
+    @State var checkPass:[String] = []
   //  var plateList = ["defaultAlphabet","sampleRandom1","sampleEmoji"]
     
      func decipher(){
@@ -26,7 +28,7 @@ struct DecipherView: View {
          changedIntoC = []
          changedIntoNum = []
          keyPlate = plateDic[selectedPlate] ?? alphabetArray
-         decipherPlate = Array(keyPlate[0+numKey...51+numKey])
+         decipherPlate = ["💀"] + Array(keyPlate[1+numKey...52+numKey])
          
          if displayedCryto == ""
          {
@@ -51,7 +53,8 @@ struct DecipherView: View {
                  changedIntoC.append(alphabetArray[value])
              }
          }
-         
+         checkNum = changedIntoNum.map{String($0)}
+         checkPass = passwordArray
          cryptoWord = changedIntoC.joined(separator: "")
     }
     

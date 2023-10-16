@@ -48,3 +48,6 @@ var plateDic: [String:[String]] =
 ]
 var plateList: [String] = plateDic.map{$0.0}
 var displayedCryto:String = ""
+
+
+ 

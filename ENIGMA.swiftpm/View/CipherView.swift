@@ -20,6 +20,10 @@ struct CipherView: View {
     @State var showModalView = false
     @State var showAlert = false
     
+    
+    
+    
+    
    // var plateList = ["defaultAlphabet","sampleRandom1","sampleEmoji"]
     
      func cipher(){
